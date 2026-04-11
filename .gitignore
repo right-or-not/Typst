@@ -1,0 +1,20 @@
+# Typst Template
+zju-typst-tplt/
+
+# fonts
+fonts/
+
+# zip file
+*.zip
+*.rar
+
+
+# demo and note files
+/demo.typ
+/note.typ
+
+
+# codex file
+.codex/
+.codex
+
