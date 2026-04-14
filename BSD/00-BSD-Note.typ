@@ -144,6 +144,9 @@ $ K = ("d"R"/"R)/("d"L"/"L) = (1 + 2mu) + (Delta rho"/"rho)/epsilon approx (Delt
 #strong[$ (Delta rho)/rho = pi sigma = pi E epsilon = "压阻系数" dot "弹性模量" dot "应变" $]
 $ K approx (Delta rho"/"rho)/epsilon = pi E $
 
+- 横向效应
+- 温度误差
+
 === 测量电路
 - 电桥调零配平
 $ n := R_2/R_1 = R_4/R_3 $
@@ -173,7 +176,7 @@ $ K = E/2 $
 $ Delta U_o = E dot (Delta R_1)/R_1 $
 $ K = E $
 
-
+#pagebreak()
 == 电感传感器与测量
 === 变磁阻式传感器
 - 真空磁导率 $mu_0$
@@ -200,7 +203,50 @@ $ Delta L = L_1 - L_2 = 2 L_0 dot (Delta delta)/delta_0 $
 $ (Delta L)/L_0 = 2 dot (Delta delta)/delta_0 $
 $ K = (Delta L"/"L)/(Delta delta) = 2/delta_0 $
 
+
+=== 测量电路
+==== 交流电桥式测量电路
+#image("image/00-2-2-4.png", width: 40%)
+- $R -> Z$
+$
+  U_o 
+  &= E dot (Z_1/(Z_1 + Z_2) - Z_3/(Z_3 + Z_4)) \ \
+  &= E dot ((Z_1 + Delta Z_1)/(Z_1 + Delta Z_1 + Z_2 - Delta Z_2) - Z_3/(Z_3 + Z_4)) \ \
+  &= E/2 dot (Delta Z_1)/Z_1 = E/2 dot (j omega Delta L)/(R + j omega L) approx E/2 dot (Delta L)/L
+$
+- 差动电桥式测量电路有 $Delta L "/" L_0 = 2 dot Delta delta "/" delta_0$
+$
+  U_0 approx E/2 dot (Delta L)/L_0 = E dot (Delta delta)/delta_0
+$
+
+==== 变压器交流电桥式测量电路
+#image("image/00-2-2-5.png", width: 40%)
+- *必须配合相敏检波器！！！*
+
+==== 谐振式测量电路
+#grid(columns: (1fr, 1fr), 
+    [
+        #image("image/00-2-2-6.png", height: 120pt)
+        - *调幅电路*：灵敏度高 & 线性差
+    ],
+    [
+        #image("image/00-2-2-7.png", height: 120pt)
+        - *调频电路*：非线性关系
+    ]
+)
+
+
+
 === 差动变压器式电感传感器（LVDT）
+==== 工作原理
+#grid(columns: (1fr, 1fr), 
+    [
+        #image("image/00-2-2-10.png", height: 180pt)
+    ],
+    [
+        #image("image/00-2-2-11.png", height: 180pt)
+    ]
+)
 $ dot(I)_1 = (dot(U)_1)/(r_1 + j omega L_1) $
 $ dot(E)_(2a) = -j omega M_1 dot(I)_1 $
 $ dot(E)_(2b) = -j omega M_2 dot(I)_1 $
@@ -209,10 +255,61 @@ $ dot(U)_2 = dot(E)_(2a) - dot(E)_(2b) = -(j omega (M_1 - M_2) dot(U)_1)/(r_1 + 
 - 有效值
 $ U_2 = abs(dot(U)_2) = (omega (M_1 - M_2) dot(U)_1)/sqrt(r_1^2 + (omega L_1)^2) $
 
-=== 信号调制解调【相敏检波器】'
+==== 测量电路
+- *差动整流电路*
+#image("image/00-2-2-12.png", width: 70%)
+- *相敏检波电路*
+#image("image/00-2-2-13-a.jpg", width: 70%)
+#image("image/00-2-2-13-b.jpg", width: 90%)
+- $u_1 = U_1 sin(omega_h t)$ 为载波
+- $u_2 = U_2 sin(omega t)$ 为输入信号
+- $u_0 = U_0 sin(omega t + phi)$ 为参考信号
+- $u_L = U_L sin(omega t)$ 为输出信号
+- *$u_2$ 和 $u_0$ 的频率 $omega$ 必须相同！！！*
+$
+  U_L = U_2/(2n_1) dot 1/(R"/"2 + R_L) dot R_L dot cos(phi)
+$
+$
+  U_L = (U_2 R_L)/(n_1(R + 2R_L)) dot cos(phi)
+$
+
+
+=== 信号调制解调
+==== 信号调制
+===== 幅度调制
+===== 频率调制
+===== 相位调制
+===== 脉宽调制
+==== 信号解调
+===== 包络检测
+===== 相敏检测
 
 
 === 电涡流传感器
+==== 工作原理
+- *电涡流效应*
+    - 根据法拉第电磁感应定律，当金属导体置于变化的磁场中或在切割磁力线的磁场中移动时，导体中会产生感应涡电流，这被称为涡流。这个现象被称为涡流效应。
+- *电涡流传感器*
+    - 基于涡流效应制造的传感器称为电涡流传感器。
+- *工作原理*
+    - 在测量位移 $x$ 的时候，我们将传感器线圈和被测导体组成线圈 — 导体系统。当传感器线圈输入交流电压时，被测金属导体表面会产生感应电涡流，此电涡流会产生交变磁场，导致传感器线圈的等效阻抗发生变化。传感器线圈受电涡流影响时的等效阻抗 $Z$ 的函数关系式为：$ Z = F(rho, mu, r, f, x) $ 保持电阻率 $rho$、磁导率 $mu$、半径 $r$ 和频率 $f$ 不变，传感器线圈的等效阻抗 $Z$ 就是位移 $x$ 的函数，即可实现对位移 $x$ 的测量。
+==== 基本特性
+#grid(columns: (2fr, 3fr), 
+    [
+        #image("image/00-2-2-16.png", height: 140pt)
+    ],
+    [
+        #image("image/00-2-2-17.png", height: 140pt)
+    ]
+)
+- *涡流深度*
+$
+  h = sqrt((rho)/(pi mu_0 mu_r f))
+$
+- *电涡流短路环等效电阻*
+$
+  R_2 = (2 pi rho)/(h ln(r_a"/"r_i))
+$
 
 == 电容传感器与测量
 == 压电传感器与测量
