@@ -5,7 +5,7 @@
 // 定义文件信息
 #let ymd = "2026-04-02" // 日期，格式为 YYYY-MM-DD
 #let course = "Biomedical Image Processing" // 课程名称
-#let proj-name = "Exercises for Image Transformation" // 作业/项目名称
+#let proj-name = "Exercises for Fourier Transform in Biomedical Images" // 作业/项目名称
 
 // 具体模版，可以选择 HW(Homework), NT(Note), RP(Report), AR(Article)
 #show: HW.with( 
