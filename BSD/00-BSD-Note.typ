@@ -124,8 +124,29 @@ $ delta_K = plus.minus (Delta H_"max")/(Y_"F.S.") times 100% = plus.minus (max(D
 #pagebreak()
 // :========== Part 3 ==========: //
 = 物理量传感器及应用
+- *电阻传感器与测量*
+    - 电阻传感器
+    - 测量电路
+- *电感传感器与测量*
+    - 变磁阻式传感器 / 变隙式电感传感器
+    - 测量电路
+    - 差动变压器式电感传感器（LVDT）
+    - 电涡流传感器
+- *电容传感器与测量*
 
+
+
+
+#pagebreak()
 == 电阻传感器与测量
+- *电阻传感器*
+    - 金属电阻应变计
+    - 半导体电阻应变计
+- *测量电路*
+    - 直流电桥
+    - 差动电桥
+
+
 === 电阻传感器
 #strong[$ R = (rho L)/S $]
 $ ("d"R)/R = ("d"rho)/rho + ("d"L)/L - ("d"S)/S $
@@ -134,12 +155,12 @@ $ (Delta S)/S = (2Delta r)/r  = -2mu dot (Delta L)/L = -2mu epsilon $
 #strong[$ (Delta R)/R = K dot (Delta L)/L = K dot epsilon $]
 $ (Delta R)/R = K dot epsilon = (1 + 2mu) dot epsilon + (Delta rho)/rho $
 
-- *金属电阻应变计*
+==== 金属电阻应变计
 $ K = ("d"R"/"R)/("d"L"/"L) = (1 + 2mu) + (Delta rho"/"rho)/epsilon approx 1 + 2mu $
 #strong[$ epsilon = (sigma)/(E) = ("应力")/("弹性模量") = F/(S E) $]
 $ (Delta R)/R = K dot epsilon = K dot F/(S E) = K/(S E)dot F prop F $
 
-- *半导体电阻应变计*
+==== 半导体电阻应变计
 $ K = ("d"R"/"R)/("d"L"/"L) = (1 + 2mu) + (Delta rho"/"rho)/epsilon approx (Delta rho"/"rho)/epsilon $
 #strong[$ (Delta rho)/rho = pi sigma = pi E epsilon = "压阻系数" dot "弹性模量" dot "应变" $]
 $ K approx (Delta rho"/"rho)/epsilon = pi E $
@@ -155,16 +176,18 @@ $ U_o = E dot (R_1/(R_1 + R_2) - R_3/(R_3 + R_4)) $
 
 ==== 直流电桥
 #strong[$ R_1 -> R_1 + Delta R_1 $]
-$ Delta U_o = E dot ((R_1 + Delta R_1)/(R_1 + Delta R_1 + R_2) - R_3/(R_3 + R_4)) $
-$ Delta U_o = E dot (Delta R_1"/"R_1 dot R_4"/"R_3)/((1 + Delta R_1"/"R_1 + R_2"/"R_1) dot (1 + R_4"/"R_3)) $
-$ Delta U_o = E dot (n)/((1 + Delta R_1"/"R_1 + n) dot (1 + n)) dot (Delta R_1)/R_1 approx E dot n/((1 + n)^2) dot (Delta R_1)/R_1 $
-- 灵敏度 $K$
+$ Delta U'_o = E dot ((R_1 + Delta R_1)/(R_1 + Delta R_1 + R_2) - R_3/(R_3 + R_4)) $
+$ Delta U'_o = E dot (Delta R_1"/"R_1 dot R_4"/"R_3)/((1 + Delta R_1"/"R_1 + R_2"/"R_1) dot (1 + R_4"/"R_3)) $
+$ Delta U'_o = E dot (n)/((1 + Delta R_1"/"R_1 + n) dot (1 + n)) dot (Delta R_1)/R_1 approx E dot n/((1 + n)^2) dot (Delta R_1)/R_1 = Delta U_0 $
+- 相对灵敏度 $K$
 $ K = U_o/(Delta R_1"/"R_1) = E dot n/((1 + n)^2) $
-- 求最佳灵敏度 $K_("max")$
+- 最佳相对灵敏度 $K_("max")$
 $ ("d"K)/("d"n) = E dot (1-n)/((1+n)^3) = 0 $
 $ n = 1 $
-$ Delta U_o = E/4 dot (Delta R_1)/R_1 $
-$ K = E/4 $
+*$ Delta U_o = E/4 dot (Delta R_1)/R_1 $*
+*$ K = E/4 $*   
+- 非线性误差 $gamma$
+$ gamma = (U_0 - U'_0)/(U_0) = ("理论值" - "实际值")/("理论值") $
 - *直流电桥存在非线性误差，为了减少和消除非线性误差，通常使用差动电桥！*
 
 ==== 差动电桥
@@ -178,7 +201,23 @@ $ K = E $
 
 #pagebreak()
 == 电感传感器与测量
-=== 变磁阻式传感器
+- *变磁阻式电感传感器*
+    - 变隙式电感传感器
+    - 差动变隙式电感传感器
+- *测量电路*
+    - 交流电桥式测量电路
+    - 变压器交流电桥式测量电路
+    - 谐振式测量电路
+- *差动变压器式电感传感器（LVDT）*
+    - 工作原理
+    - 测量电路
+- *电涡流传感器*
+    - 工作原理
+    - 基本特性
+
+
+
+=== 变磁阻式电感传感器
 - 真空磁导率 $mu_0$
 - 线圈匝数 $omega$
 - 磁阻 $R_m$
@@ -191,9 +230,10 @@ $ L_0 = (omega^2)/R_m = (omega^2 mu_0 S_0)/(2delta_0) $
 $ L(delta = delta_0 - Delta delta) = L_0 + Delta L = (omega^2 mu_0 S_0)/(2(delta_0 - Delta delta)) $
 $ L/L_0 = (L_0 + Delta L)/L_0 = 1/(1 - Delta delta"/"delta_0) $
 $ L/L_0 = 1 + (Delta L)/L_0 = 1 + (Delta delta)/delta_0 + ((Delta delta)/(2 delta_0))^2 + ((Delta delta)/(2 delta_0))^3 + dots $
+*$ (Delta delta)/delta_0 << 1 $*
 $ (Delta L)/L_0 = (Delta delta)/delta_0 + ((Delta delta)/(2 delta_0))^2 + ((Delta delta)/(2 delta_0))^3 + dots approx (Delta delta)/delta_0 $
 
-- 灵敏度 $K$
+- 相对灵敏度 $K$
 $ K = ((Delta L)"/"L_0)/(Delta delta) = 1/delta_0 $
 
 ==== 差动变隙式电感传感器
@@ -206,21 +246,28 @@ $ K = (Delta L"/"L)/(Delta delta) = 2/delta_0 $
 
 === 测量电路
 ==== 交流电桥式测量电路
-#image("image/00-2-2-4.png", width: 40%)
 - $R -> Z$
 $
   U_o 
   &= E dot (Z_1/(Z_1 + Z_2) - Z_3/(Z_3 + Z_4)) \ \
   &= E dot ((Z_1 + Delta Z_1)/(Z_1 + Delta Z_1 + Z_2 - Delta Z_2) - Z_3/(Z_3 + Z_4)) \ \
-  &= E/2 dot (Delta Z_1)/Z_1 = E/2 dot (j omega Delta L)/(R + j omega L) approx E/2 dot (Delta L)/L
-$
-- 差动电桥式测量电路有 $Delta L "/" L_0 = 2 dot Delta delta "/" delta_0$
-$
-  U_0 approx E/2 dot (Delta L)/L_0 = E dot (Delta delta)/delta_0
+  &= E/2 dot (Delta Z_1)/Z_1 = E/2 dot (j omega Delta L)/(R + j omega L) \ \
+  &approx E/2 dot (Delta L)/L_0 = E/2 dot (Delta delta)/delta_0
 $
 
+==== 差动电桥式测量电路
+$ (Delta L)/ L_0 = 2 dot (Delta delta)/ delta_0 $
+$ U_0 approx E/2 dot (Delta L)/L_0 = E dot (Delta delta)/delta_0 $
+#grid(columns: (1fr, 1fr), 
+    [
+        #image("image/00-2-2-4.png", height: 150pt)
+    ],
+    [
+        #image("image/00-2-2-5.png", height: 150pt)
+    ]
+)
+
 ==== 变压器交流电桥式测量电路
-#image("image/00-2-2-5.png", width: 40%)
 - *必须配合相敏检波器！！！*
 
 ==== 谐振式测量电路
@@ -262,27 +309,14 @@ $ U_2 = abs(dot(U)_2) = (omega (M_1 - M_2) dot(U)_1)/sqrt(r_1^2 + (omega L_1)^2)
 #image("image/00-2-2-13-a.jpg", width: 70%)
 #image("image/00-2-2-13-b.jpg", width: 90%)
 - $u_1 = U_1 sin(omega_h t)$ 为载波
-- $u_2 = U_2 sin(omega t)$ 为输入信号
+- $u_2 = U_2 sin(omega t)$ 为已调信号
 - $u_0 = U_0 sin(omega t + phi)$ 为参考信号
-- $u_L = U_L sin(omega t)$ 为输出信号
+- $u_L = U_L sin(omega t)$ 为解调后的基带信号
+
+$ U_L = U_2/(2n_1) dot 1/(R"/"2 + R_L) dot R_L dot cos(phi) $
+$ U_L = (U_2 R_L)/(n_1(R + 2R_L)) dot cos(phi) $
 - *$u_2$ 和 $u_0$ 的频率 $omega$ 必须相同！！！*
-$
-  U_L = U_2/(2n_1) dot 1/(R"/"2 + R_L) dot R_L dot cos(phi)
-$
-$
-  U_L = (U_2 R_L)/(n_1(R + 2R_L)) dot cos(phi)
-$
-
-
-=== 信号调制解调
-==== 信号调制
-===== 幅度调制
-===== 频率调制
-===== 相位调制
-===== 脉宽调制
-==== 信号解调
-===== 包络检测
-===== 相敏检测
+- *相当于 $u_2$ 在 $u_0$ 上作了一个投影！！！*
 
 
 === 电涡流传感器
@@ -303,15 +337,61 @@ $
     ]
 )
 - *涡流深度*
-$
-  h = sqrt((rho)/(pi mu_0 mu_r f))
-$
+$  h = sqrt((rho)/(pi mu_0 mu_r f)) $
 - *电涡流短路环等效电阻*
-$
-  R_2 = (2 pi rho)/(h ln(r_a"/"r_i))
-$
+$  R_2 = (2 pi rho)/(h ln(r_a"/"r_i)) $
 
 == 电容传感器与测量
+- *电容传感器*
+    - 变极距型电容式传感器
+    - 变面积型电容式传感器
+    - 变介电常数型电容式传感器
+- *测量电路*
+- *生物医学应用*
+    - 电容式压力传感器
+    - 静电电容麦克风
+    - 二维电容式压力传感器阵列
+
+=== 电容传感器
+$  C = Q/U = (epsilon S)/(d) $
+$  C_0 = Q/U = (epsilon_0 epsilon_r S)/(d_0) = (epsilon_0 epsilon_r S_0)/(d) = (epsilon_0 S)/(d) $
+==== 变极距型电容式传感器
+#grid(columns: (2fr, 1fr), 
+    [
+        #image("image/00-2-3-1.png", height: 140pt)
+    ],
+    [
+        #image("image/00-2-3-2.png", height: 140pt)
+    ]
+)
+$ C(d = d_0 - Delta d) = C_0 + Delta C = (epsilon_0 epsilon_r S)/(d_0 - Delta d) $
+$ C/C_0 = (C_0 + Delta C)/C_0 = 1/(1 - Delta d"/"d_0) $
+$ C/ C_0 = 1 + (Delta C)/C_0 = 1 + (Delta d)/d_0 + ((Delta d)/(2 d_0))^2 + ((Delta d)/(2 d_0))^3 + dots $
+*$ (Delta d)/d_0 << 1 $*
+$ (Delta C)/C_0 = (Delta d)/d_0 + ((Delta d)/(2 d_0))^2 + ((Delta d)/(2 d_0))^3 + dots approx (Delta d)/d_0 $
+- 相对灵敏度 $K$
+$  K = (Delta C"/"C_0)/(Delta d) = 1/d_0 $
+
+-  *差动变极距型电容式传感器*
+$ (Delta C)/C_0 approx 2 dot (Delta d)/d_0 $
+
+- *复合介质（防止击穿或短路）$->$ 等效间距 $d_r$ *
+$ d_r = d_g/epsilon_g $
+$ C = (epsilon_0 S)/(d_r + d_0) $
+
+==== 变面积型电容式传感器
+==== 变介电常数型电容式传感器
+
+=== 测量电路
+
+
+=== 生物医学应用
+
+
+
+
+
+
 == 压电传感器与测量
 == 磁电传感器与测量
 == 光电传感器与测量
