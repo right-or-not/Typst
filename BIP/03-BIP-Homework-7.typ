@@ -102,6 +102,8 @@ $
 $
 which means the restored image maybe is very blurry or just a block of color.
 
+简单来说，参数 $gamma$ 就是调控滤波结果足够准确还是足够平滑。选取 $gamma = 0$，会导致结果过于准确，也就是把高频细节都充分滤波，导致高频细节强度太高；选取 $gamma -> +infinity$ 会导致过于平滑，甚至会让整个图像平滑成类似一个方块的情况。
+
 3. When we set $gamma = 0$, the CLS filter will become an Inverse filter. For Inverse filter, a sight additive noise $eta(x, y)$ is terrible, because 
 $
   hat(F)(u, v) = (G(u, v))/(H(u, v)) = (H(u, v) dot F(u, v) + N(u, v))/(H(u, v)) = F(u, v) + (N(u, v))/(H(u, v))
@@ -112,8 +114,33 @@ While we set $gamma = 10^(-6)$, in
 $
   hat(F)(u, v) = [(H^*(u, v))/(abs(H(u, v))^2 + gamma abs(P(u, v))^2)] G(u, v)
 $
-$gamma abs(P(u, v))^2$ will reduce the amplification of high-frequency signals, which keep the relative intensity of low -frequency signals.
+$gamma abs(P(u, v))^2$ will reduce the amplification of high-frequency signals, which keep the relative intensity of low-frequency signals.
 
+Now substitute $H(u, v)$:
+$
+  H(u, v) 
+  &= (T)/(pi(u a + v b)) sin[pi(u a + v b)] e^(-j pi (u a + v b)) \ \
+  &= T sinc(u a + v b) e^(-j pi (u a + v b))
+$
+then, let $gamma = 0$
+$
+  hat(F)(u, v) = F(u, v) + (N(u, v))/(T sinc(u a + v b) e^(-j pi (u a + v b)))
+$
+when $u a + v b = n in ZZ$, $H(u, v) = 0$, and $hat(F)(u, v) -> +infinity$, the image will be all high-frequency noise.
+
+let $gamma -> 10^(-6)$,
+$
+  hat(F)(u, v) 
+  &= [(T sinc(u a + v b) e^(j pi (u a + v b)))/(abs(T sinc(u a + v b) e^(-j pi (u a + v b)))^2 + gamma abs(P(u, v))^2)] G(u, v) \ \
+  &= [(T sinc(u a + v b) e^(j pi (u a + v b)))/(abs(T sinc(u a + v b))^2 + gamma abs(P(u, v))^2)] G(u, v)
+$
+when $sinc(u a + v b) -> 0$, 
+$
+  hat(F)(u, v)  -> [0/(0 + 10^(-6)abs(P(u, v))^2)] dot G(u, v) -> 0
+$
+will not to $+infinity$.
+
+所以 $gamma = 10^(-6)$ 避免了取 $gamma = 0$ 时会出现的噪声爆炸，能够在高频区域也将噪声抑制得很好。
 
 
 
