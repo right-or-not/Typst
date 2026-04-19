@@ -341,6 +341,7 @@ $  h = sqrt((rho)/(pi mu_0 mu_r f)) $
 - *电涡流短路环等效电阻*
 $  R_2 = (2 pi rho)/(h ln(r_a"/"r_i)) $
 
+#pagebreak()
 == 电容传感器与测量
 - *电容传感器*
     - 变极距型电容式传感器
@@ -375,25 +376,197 @@ $  K = (Delta C"/"C_0)/(Delta d) = 1/d_0 $
 -  *差动变极距型电容式传感器*
 $ (Delta C)/C_0 approx 2 dot (Delta d)/d_0 $
 
-- *复合介质（防止击穿或短路）$->$ 等效间距 $d_r$ *
+
+#grid(columns: (2fr, 1fr), 
+    [
+        - *复合介质（防止击穿或短路）$->$ 等效间距 $d_r$ *
+            - $epsilon_0$ 为真空介电常数
+            - $epsilon_g$ 为云母介电常数
+            - $d_0$ 为空气间距
+            - $d_g$ 为云母厚度
+    ], image("image/00-2-3-3.png", height: 90pt)
+)
+
 $ d_r = d_g/epsilon_g $
 $ C = (epsilon_0 S)/(d_r + d_0) $
 
+
 ==== 变面积型电容式传感器
+
+#grid(columns: (2fr, 1fr), 
+    image("image/00-2-3-4.png", height: 150pt),
+    image("image/00-2-3-5.png", height: 150pt)
+)
+
+- *横向位移*
+$ C_0 = (epsilon_0 epsilon_r b a)/(d) $
+$ Delta C = -(epsilon_0 epsilon_r b Delta x)/(d) $
+- *角位移*
+$ C_0 = (epsilon_0 epsilon_r S_0)/(d) $
+$ Delta C = (epsilon_0 epsilon_r Delta S)/(d) = (epsilon_0 epsilon_r S_0)/(d) dot (1 - (Delta theta)/(pi)) $
+
+
 ==== 变介电常数型电容式传感器
+- *液体介质：电容并联*
+#grid(columns: (2fr, 1fr), 
+    [
+        $ E(r) = lambda/(2pi epsilon_0 r) $
+        $ U = integral_(r)^(R) E(r) "d"r = lambda/(2pi epsilon_0) ln(R/r) $
+        $ C_0 = Q/U = (lambda l)/(lambda"/"(2pi epsilon_0) dot ln(R"/"r)) = (2pi epsilon_0 l)/(ln(R"/"r)) $
+        $ C_1 = (2pi epsilon_0 epsilon_1 l_1)/(ln(R"/"r)), C_2 = (2pi epsilon_0 epsilon_2 l_2)/(ln(R"/"r)) $
+        $ Delta C = C_1 + C_2 - C_0 = (2pi epsilon_0(epsilon_1 - 1) l_1)/(ln(R"/"r)) $
+    ],
+    image("image/00-2-3-6.png", height: 200pt)
+)
+
+- *固体介质：电容并联*
+
 
 === 测量电路
+
+==== 频率调制法
+- *LC — FM：LC 震荡电路实现频率调制*
+- *555 双稳态振荡器：频率 $->$ 脉冲宽度*
+
+==== 交流电桥法
+#image("image/00-2-3-7.png", width: 50%)
+$ U_o = U_i dot (Z_x)/(Z) = U_i dot C/C_x prop 1/C_x prop d $
+
+==== 充放电法
+- *二极管T形网络 / 双T电桥电路*
+#image("image/00-2-3-8.png", width: 50%)
+$ U_o = U_i f (R(R + 2R)/((R + R_L)^2)dot R_L) (C_1 - C_2) $
+- *脉冲宽度调制电路*
+#image("image/00-2-3-9.png", width: 50%)
 
 
 === 生物医学应用
 
+- 线性位移、角位移、振动幅值
+- 高频振动幅度、轴旋转精度、加速度
+- 压力、压差、液位、材料表面、成分含量、非金属材料的涂层材料
+- 油膜厚度、湿度、介电材料的密度与厚度
 
+==== 电容式助听器
+==== 电容式压力传感器
+==== 电容式微机械超声换能器（CMUT）
 
-
-
-
+#pagebreak()
 == 压电传感器与测量
-== 磁电传感器与测量
-== 光电传感器与测量
+- *压电传感器*
+    - 压电效应
+    - 压电材料
+- *测量电路*
+- *生物医学应用*
+    - 基于直接压电效应的传感器
+    - 基于压电谐振器的传感器
+
+=== 压电传感器
+==== 压电效应
+- *正压电效应*：机械能 $->$ 电能
+- *逆压电效应*：电能 $->$ 机械能
+- *压电系数矩阵*
+==== 压电材料
+- *压电晶体*
+- *压电陶瓷（PZT）*
+    - 钛酸钡（BaTiO3）
+    - 铅锆钛酸铅（PZT）
+    - 昵酸镁铅（PMN）
+- *聚偏二氟乙烯薄膜（PVDF）*
+
+
+=== 测量电路
+- *压电传感器特点*
+    - 内部阻抗较高
+    - 输出能量较低
+- *压电传感器测量电路特点*
+    - 阻抗转换
+    - 信号放大
+
+==== 多压电元件粘连
+#table(
+    columns: (1fr, 1fr),
+    stroke: (x, y) => (
+        top: if y == 0 { 0.5pt },
+        bottom: if y == 2 { 0.5pt },
+    ),
+    [同极粘连], [反极粘连],
+    [电容并联], [电容串联],
+    [电容增大 & 电压保持不变], [电压增大 & 电容减半],
+)
+==== 电压放大器
+#image("image/00-2-4-1.png", width: 90%)
+==== 电荷放大器
+#image("image/00-2-4-2.png", width: 50%)
+=== 生物医学应用
+
+#pagebreak()
+== 磁电感应式传感器与测量
+- *磁电感应式传感器*
+- *测量电路*
+- *生物医学应用*
+
+=== 磁电感应式传感器
+- *有源传感器*
+- 不需要电源、输出功率大、性能稳定、工作频带宽（10Hz $tilde.op$ 1000Hz）
+- 工作原理：法拉第电磁感应定律
+$ E = ("d"Phi)/("d"t) = (B l"d"x)/("d"t) = B l v $
+
+==== 变磁通式磁电感应式传感器（开磁路）
+- 磁阻变化 $->$ 磁通变化 $->$ 感生电动势变化
+
+==== 恒磁通式磁电感应式传感器（闭磁路）
+- 切割磁感线 $->$ 动生电动势变化
+
+#grid(columns: (1fr, 1fr), 
+    image("image/00-2-5-1.jpg", height: 120pt),
+    image("image/00-2-5-2.jpg", height: 120pt)
+)
+
+==== 基本特性
+#grid(columns: (2fr, 1fr), 
+    [
+
+    ],
+    image("image/00-2-5-3.png", width: 80%)
+)
+
+
+=== 测量电路
+- 直接输出感应电动势
+- 灵敏度高 & 不需要高增益放大器
+- 本身为速度传感器
+#image("image/00-2-5-4.png", width: 90%)
+
+
+
+#pagebreak()
+== 霍尔传感器与测量
+- *霍尔传感器*
+- *不等电势补偿*
+- *温度补偿*
+- *生物医学应用*
+
+=== 霍尔传感器
+- *无源传感器*
+#image("image/00-2-6-1.png", width: 70%)
+
+==== 工作原理
+- *霍尔效应*
+$ F_l = e B v = e dot U_H/b = e dot E_H = F_E $
+$ U_H = b B v = b B dot (I)/(n e S) = (B I)/(n e d) $
+- 霍尔系数 $R_H$
+$  R_H = 1/(n e) $
+- 灵敏度 $K$
+$ K = U_H/(I B) = (R_H)/d $
+
+==== 基本特性
+- *不等位电势 & 不等位电阻*
+- *寄生直流电势*
+- *霍尔电势温度系数*
+
+=== 不等位电势补偿
+#image("image/00-2-6-2.jpg", width: 90%)
+
 == 热电传感器与测量
 
