@@ -95,7 +95,7 @@ $ delta_K = plus.minus (Delta H_"max")/(Y_"F.S.") times 100% = plus.minus (max(D
 - *有线检测 & 无线检测*
 
 === 检测系统
-#image("./image/00-2-2-2.png", width: 90%)
+#image("./note_image/2-2-2.png", width: 90%)
 - 参量转换电路
 - 阻抗匹配电路
 - 微弱信号放大电路
@@ -260,10 +260,10 @@ $ (Delta L)/ L_0 = 2 dot (Delta delta)/ delta_0 $
 $ U_0 approx E/2 dot (Delta L)/L_0 = E dot (Delta delta)/delta_0 $
 #grid(columns: (1fr, 1fr), 
     [
-        #image("image/00-2-2-4.png", height: 150pt)
+        #image("note_image/2-2-4.png", height: 150pt)
     ],
     [
-        #image("image/00-2-2-5.png", height: 150pt)
+        #image("note_image/2-2-5.png", height: 150pt)
     ]
 )
 
@@ -273,11 +273,11 @@ $ U_0 approx E/2 dot (Delta L)/L_0 = E dot (Delta delta)/delta_0 $
 ==== 谐振式测量电路
 #grid(columns: (1fr, 1fr), 
     [
-        #image("image/00-2-2-6.png", height: 120pt)
+        #image("note_image/2-2-6.png", height: 120pt)
         - *调幅电路*：灵敏度高 & 线性差
     ],
     [
-        #image("image/00-2-2-7.png", height: 120pt)
+        #image("note_image/2-2-7.png", height: 120pt)
         - *调频电路*：非线性关系
     ]
 )
@@ -288,10 +288,10 @@ $ U_0 approx E/2 dot (Delta L)/L_0 = E dot (Delta delta)/delta_0 $
 ==== 工作原理
 #grid(columns: (1fr, 1fr), 
     [
-        #image("image/00-2-2-10.png", height: 180pt)
+        #image("note_image/2-2-10.png", height: 180pt)
     ],
     [
-        #image("image/00-2-2-11.png", height: 180pt)
+        #image("note_image/2-2-11.png", height: 180pt)
     ]
 )
 $ dot(I)_1 = (dot(U)_1)/(r_1 + j omega L_1) $
@@ -304,10 +304,10 @@ $ U_2 = abs(dot(U)_2) = (omega (M_1 - M_2) dot(U)_1)/sqrt(r_1^2 + (omega L_1)^2)
 
 ==== 测量电路
 - *差动整流电路*
-#image("image/00-2-2-12.png", width: 70%)
+#image("note_image/2-2-12.png", width: 70%)
 - *相敏检波电路*
-#image("image/00-2-2-13-a.jpg", width: 70%)
-#image("image/00-2-2-13-b.jpg", width: 90%)
+#image("note_image/2-2-13-a.jpg", width: 70%)
+#image("note_image/2-2-13-b.jpg", width: 90%)
 - $u_1 = U_1 sin(omega_h t)$ 为载波
 - $u_2 = U_2 sin(omega t)$ 为已调信号
 - $u_0 = U_0 sin(omega t + phi)$ 为参考信号
@@ -330,10 +330,10 @@ $ U_L = (U_2 R_L)/(n_1(R + 2R_L)) dot cos(phi) $
 ==== 基本特性
 #grid(columns: (2fr, 3fr), 
     [
-        #image("image/00-2-2-16.png", height: 140pt)
+        #image("note_image/2-2-16.png", height: 140pt)
     ],
     [
-        #image("image/00-2-2-17.png", height: 140pt)
+        #image("note_image/2-2-17.png", height: 140pt)
     ]
 )
 - *涡流深度*
@@ -359,10 +359,10 @@ $  C_0 = Q/U = (epsilon_0 epsilon_r S)/(d_0) = (epsilon_0 epsilon_r S_0)/(d) = (
 ==== 变极距型电容式传感器
 #grid(columns: (2fr, 1fr), 
     [
-        #image("image/00-2-3-1.png", height: 140pt)
+        #image("note_image/2-3-1.png", height: 140pt)
     ],
     [
-        #image("image/00-2-3-2.png", height: 140pt)
+        #image("note_image/2-3-2.png", height: 140pt)
     ]
 )
 $ C(d = d_0 - Delta d) = C_0 + Delta C = (epsilon_0 epsilon_r S)/(d_0 - Delta d) $
@@ -384,7 +384,7 @@ $ (Delta C)/C_0 approx 2 dot (Delta d)/d_0 $
             - $epsilon_g$ 为云母介电常数
             - $d_0$ 为空气间距
             - $d_g$ 为云母厚度
-    ], image("image/00-2-3-3.png", height: 90pt)
+    ], image("note_image/2-3-3.png", height: 90pt)
 )
 
 $ d_r = d_g/epsilon_g $
@@ -394,8 +394,8 @@ $ C = (epsilon_0 S)/(d_r + d_0) $
 ==== 变面积型电容式传感器
 
 #grid(columns: (2fr, 1fr), 
-    image("image/00-2-3-4.png", height: 150pt),
-    image("image/00-2-3-5.png", height: 150pt)
+    image("note_image/2-3-4.png", height: 150pt),
+    image("note_image/2-3-5.png", height: 150pt)
 )
 
 - *横向位移*
@@ -416,7 +416,7 @@ $ Delta C = (epsilon_0 epsilon_r Delta S)/(d) = (epsilon_0 epsilon_r S_0)/(d) do
         $ C_1 = (2pi epsilon_0 epsilon_1 l_1)/(ln(R"/"r)), C_2 = (2pi epsilon_0 epsilon_2 l_2)/(ln(R"/"r)) $
         $ Delta C = C_1 + C_2 - C_0 = (2pi epsilon_0(epsilon_1 - 1) l_1)/(ln(R"/"r)) $
     ],
-    image("image/00-2-3-6.png", height: 200pt)
+    image("note_image/2-3-6.png", height: 200pt)
 )
 
 - *固体介质：电容并联*
@@ -429,15 +429,15 @@ $ Delta C = (epsilon_0 epsilon_r Delta S)/(d) = (epsilon_0 epsilon_r S_0)/(d) do
 - *555 双稳态振荡器：频率 $->$ 脉冲宽度*
 
 ==== 交流电桥法
-#image("image/00-2-3-7.png", width: 50%)
+#image("note_image/2-3-7.png", width: 50%)
 $ U_o = U_i dot (Z_x)/(Z) = U_i dot C/C_x prop 1/C_x prop d $
 
 ==== 充放电法
 - *二极管T形网络 / 双T电桥电路*
-#image("image/00-2-3-8.png", width: 50%)
+#image("note_image/2-3-8.png", width: 50%)
 $ U_o = U_i f (R(R + 2R)/((R + R_L)^2)dot R_L) (C_1 - C_2) $
 - *脉冲宽度调制电路*
-#image("image/00-2-3-9.png", width: 50%)
+#image("note_image/2-3-9.png", width: 50%)
 
 
 === 生物医学应用
@@ -495,9 +495,9 @@ $ U_o = U_i f (R(R + 2R)/((R + R_L)^2)dot R_L) (C_1 - C_2) $
     [电容增大 & 电压保持不变], [电压增大 & 电容减半],
 )
 ==== 电压放大器
-#image("image/00-2-4-1.png", width: 90%)
+#image("note_image/2-4-1.png", width: 90%)
 ==== 电荷放大器
-#image("image/00-2-4-2.png", width: 50%)
+#image("note_image/2-4-2.png", width: 50%)
 === 生物医学应用
 
 #pagebreak()
@@ -519,8 +519,8 @@ $ E = ("d"Phi)/("d"t) = (B l"d"x)/("d"t) = B l v $
 - 切割磁感线 $->$ 动生电动势变化
 
 #grid(columns: (1fr, 1fr), 
-    image("image/00-2-5-1.jpg", height: 120pt),
-    image("image/00-2-5-2.jpg", height: 120pt)
+    image("note_image/2-5-1.jpg", height: 120pt),
+    image("note_image/2-5-2.jpg", height: 120pt)
 )
 
 ==== 基本特性
@@ -528,7 +528,7 @@ $ E = ("d"Phi)/("d"t) = (B l"d"x)/("d"t) = B l v $
     [
 
     ],
-    image("image/00-2-5-3.png", width: 80%)
+    image("note_image/2-5-3.png", width: 80%)
 )
 
 
@@ -536,7 +536,7 @@ $ E = ("d"Phi)/("d"t) = (B l"d"x)/("d"t) = B l v $
 - 直接输出感应电动势
 - 灵敏度高 & 不需要高增益放大器
 - 本身为速度传感器
-#image("image/00-2-5-4.png", width: 90%)
+#image("note_image/2-5-4.png", width: 90%)
 
 
 
@@ -549,7 +549,7 @@ $ E = ("d"Phi)/("d"t) = (B l"d"x)/("d"t) = B l v $
 
 === 霍尔传感器
 - *无源传感器*
-#image("image/00-2-6-1.png", width: 70%)
+#image("note_image/2-6-1.png", width: 70%)
 
 ==== 工作原理
 - *霍尔效应*
@@ -566,7 +566,38 @@ $ K = U_H/(I B) = (R_H)/d $
 - *霍尔电势温度系数*
 
 === 不等位电势补偿
-#image("image/00-2-6-2.jpg", width: 90%)
+#image("note_image/2-6-2.jpg", width: 90%)
 
+
+
+
+#pagebreak()
+== 光电传感器与测量
+- *光电敏感器件*
+    - 光敏电阻
+    - 光敏二极管
+    - 光伏传感器
+- *光纤传感器*
+    - 光纤结构与原理
+    - 光纤的基本特性
+- *光电传感器的应用*
+
+=== 光电敏感器件
+
+=== 光纤传感器
+
+=== 光电传感器的应用
+
+
+
+#pagebreak()
 == 热电传感器与测量
+- *热敏元件*
+- *热电偶传感器*
+- *集成温度传感器*
+- *热电传感器的应用*
+
+
+
+
 
