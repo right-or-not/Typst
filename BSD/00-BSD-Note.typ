@@ -258,13 +258,9 @@ $
 ==== 差动电桥式测量电路
 $ (Delta L)/ L_0 = 2 dot (Delta delta)/ delta_0 $
 $ U_0 approx E/2 dot (Delta L)/L_0 = E dot (Delta delta)/delta_0 $
-#grid(columns: (1fr, 1fr), 
-    [
-        #image("note_image/2-2-4.png", height: 150pt)
-    ],
-    [
-        #image("note_image/2-2-5.png", height: 150pt)
-    ]
+#grid(columns: (2fr, 3fr), 
+    align(bottom, image("note_image/2-2-4.png", width: 90%)),
+    align(bottom, image("note_image/2-2-5.png", width: 90%))
 )
 
 ==== 变压器交流电桥式测量电路
@@ -287,12 +283,8 @@ $ U_0 approx E/2 dot (Delta L)/L_0 = E dot (Delta delta)/delta_0 $
 === 差动变压器式电感传感器（LVDT）
 ==== 工作原理
 #grid(columns: (1fr, 1fr), 
-    [
-        #image("note_image/2-2-10.png", height: 180pt)
-    ],
-    [
-        #image("note_image/2-2-11.png", height: 180pt)
-    ]
+    align(bottom, image("note_image/2-2-10.png", width: 90%)),
+    align(bottom, image("note_image/2-2-11.png", width: 90%))
 )
 $ dot(I)_1 = (dot(U)_1)/(r_1 + j omega L_1) $
 $ dot(E)_(2a) = -j omega M_1 dot(I)_1 $
@@ -328,13 +320,9 @@ $ U_L = (U_2 R_L)/(n_1(R + 2R_L)) dot cos(phi) $
 - *工作原理*
     - 在测量位移 $x$ 的时候，我们将传感器线圈和被测导体组成线圈 — 导体系统。当传感器线圈输入交流电压时，被测金属导体表面会产生感应电涡流，此电涡流会产生交变磁场，导致传感器线圈的等效阻抗发生变化。传感器线圈受电涡流影响时的等效阻抗 $Z$ 的函数关系式为：$ Z = F(rho, mu, r, f, x) $ 保持电阻率 $rho$、磁导率 $mu$、半径 $r$ 和频率 $f$ 不变，传感器线圈的等效阻抗 $Z$ 就是位移 $x$ 的函数，即可实现对位移 $x$ 的测量。
 ==== 基本特性
-#grid(columns: (2fr, 3fr), 
-    [
-        #image("note_image/2-2-16.png", height: 140pt)
-    ],
-    [
-        #image("note_image/2-2-17.png", height: 140pt)
-    ]
+#grid(columns: (1fr, 1fr), 
+    align(bottom, image("note_image/2-2-16.png", width: 90%)),
+    align(bottom, image("note_image/2-2-17.png", width: 95%))
 )
 - *涡流深度*
 $  h = sqrt((rho)/(pi mu_0 mu_r f)) $
@@ -357,13 +345,10 @@ $  R_2 = (2 pi rho)/(h ln(r_a"/"r_i)) $
 $  C = Q/U = (epsilon S)/(d) $
 $  C_0 = Q/U = (epsilon_0 epsilon_r S)/(d_0) = (epsilon_0 epsilon_r S_0)/(d) = (epsilon_0 S)/(d) $
 ==== 变极距型电容式传感器
-#grid(columns: (2fr, 1fr), 
-    [
-        #image("note_image/2-3-1.png", height: 140pt)
-    ],
-    [
-        #image("note_image/2-3-2.png", height: 140pt)
-    ]
+#grid(
+    columns: (1fr, 1fr), 
+    align(bottom, image("note_image/2-3-1.png", width: 90%)),
+    align(bottom, image("note_image/2-3-2.png", width: 90%))
 )
 $ C(d = d_0 - Delta d) = C_0 + Delta C = (epsilon_0 epsilon_r S)/(d_0 - Delta d) $
 $ C/C_0 = (C_0 + Delta C)/C_0 = 1/(1 - Delta d"/"d_0) $
@@ -393,9 +378,10 @@ $ C = (epsilon_0 S)/(d_r + d_0) $
 
 ==== 变面积型电容式传感器
 
-#grid(columns: (2fr, 1fr), 
-    image("note_image/2-3-4.png", height: 150pt),
-    image("note_image/2-3-5.png", height: 150pt)
+#grid(
+    columns: (2fr, 1fr), 
+    align(image("note_image/2-3-4.png", height: 150pt)),
+    align(image("note_image/2-3-5.png", height: 150pt))
 )
 
 - *横向位移*
@@ -487,8 +473,8 @@ $ U_o = U_i f (R(R + 2R)/((R + R_L)^2)dot R_L) (C_1 - C_2) $
 #table(
     columns: (1fr, 1fr),
     stroke: (x, y) => (
-        top: if y == 0 { 0.5pt },
-        bottom: if y == 2 { 0.5pt },
+        top: if y == 0 { 1pt },
+        bottom: if y == 2 { 1pt },
     ),
     [同极粘连], [反极粘连],
     [电容并联], [电容串联],
@@ -518,9 +504,10 @@ $ E = ("d"Phi)/("d"t) = (B l"d"x)/("d"t) = B l v $
 ==== 恒磁通式磁电感应式传感器（闭磁路）
 - 切割磁感线 $->$ 动生电动势变化
 
-#grid(columns: (1fr, 1fr), 
-    image("note_image/2-5-1.jpg", height: 120pt),
-    image("note_image/2-5-2.jpg", height: 120pt)
+#grid(
+    columns: (1fr, 1fr), 
+    align(image("note_image/2-5-1.jpg", height: 120pt)),
+    align(image("note_image/2-5-2.jpg", height: 120pt))
 )
 
 ==== 基本特性
@@ -573,18 +560,75 @@ $ K = U_H/(I B) = (R_H)/d $
 
 #pagebreak()
 == 光电传感器与测量
-- *光电敏感器件*
+- *光电传感器*
     - 光敏电阻
-    - 光敏二极管
-    - 光伏传感器
+    - 光敏二极管和光敏晶体管
 - *光纤传感器*
     - 光纤结构与原理
     - 光纤的基本特性
-- *光电传感器的应用*
+- *光电传感器在生物医学中的应用*
 
 === 光电敏感器件
+- 光电敏感器件是将光能转换为电能的一种传感器件
+- 光电器件工作的物理基础是光电效应
+    - 内光电效应：光电导效应【光敏电阻】 & 光生伏特效应【光电池】
+    - 外光电效应：爱因斯坦光电效应【光敏二极管 & 光电倍增管】
+- 主要特点：快速响应、结构简单、使用方便、可无接触检测信号、可靠性高
+
+==== 光敏电阻
+- 内光电效应
+- 光电导效应
+- 电阻器件 & 没有极性
+- 暗电阻越大越好（$"M"Omega$） & 亮电阻越小越好（$"k"Omega$）
+#image("note_image/2-7-1.png", width: 50%)
+
+- 三大特性：
+    1. 伏安特性 
+#image("note_image/2-7-2.jpg", width: 60%)
+    2. 光谱特性 
+#image("note_image/2-7-3.png", width: 60%)
+    3. 温度特性 
+#image("note_image/2-7-4.png", width: 60%)
+
+==== 光敏二极管和光敏晶体管
+- 外光电效应
+- 光敏二极管【始终工作在反向状态】
+#grid(
+  columns: (1fr, 1fr),
+  align(bottom, image("note_image/2-7-5.png", width: 90%)),
+  align(bottom, image("note_image/2-7-6.png", width: 90%))
+)
+
+- 光敏晶体管
+#image("note_image/2-7-7.png", width: 90%)
+
+- 三大特性
+    1. 伏安特性
+    2. 光谱特性
+    3. 温度特性
 
 === 光纤传感器
+==== 光纤结构与原理
+#table(
+    columns: (1fr, 1fr, 1fr, 1fr),
+    stroke: (x, y) => (
+        top: if y == 0 { 1pt } else if y == 1 { 0.5pt },
+        bottom: if y == 3 { 1pt },
+    ),
+    [光纤结构], [材料], [影响], [折射率],
+    [纤芯], [石英玻璃], [导光能力], [$n_1$],
+    [包层], [石英玻璃], [导光能力], [$n_2$],
+    [保护层], [尼龙材料], [机械强度], [$n_0$],
+)
+
+- 光纤原理：全反射
+- 计算全反射条件：折射 & 全反射
+
+#image("note_image/2-7-8.png", width: 70%)
+
+==== 光纤的基本特性
+- *数值孔径 $"NA"$* （越大越好）
+$ "NA" = sin theta_c = sqrt(n_1^2 - n_2^2)/n_0 $
 
 === 光电传感器的应用
 
@@ -592,10 +636,73 @@ $ K = U_H/(I B) = (R_H)/d $
 
 #pagebreak()
 == 热电传感器与测量
-- *热敏元件*
+- *热电阻传感器*    
+    - 金属材料
+    - 半导体材料
 - *热电偶传感器*
 - *集成温度传感器*
+    - 二极管温度传感器
+    - 三极管温度传感器
 - *热电传感器的应用*
+
+=== 热电阻传感器
+==== 金属热敏电阻
+- 电阻温度探测器（RTD）
+- 利用金属电阻率温度系数制成温度传感器称为金属电阻温度计
+$ R_T = R_0 dot (1 + alpha Delta T) $
+
+==== 半导体热敏电阻
+- 陶瓷 or 聚合物
+- 电阻温度系数很大 & 线性很差（量程较小）
+- 正温度系数热敏电阻（PTC）
+- 负温度系数热敏电阻（NTC）
+#image("note_image/2-8-1.png", width: 60%)
+
+
+
+=== 热电偶传感器
+==== 热电效应
+- 两种不同导体组成闭合回路
+- 两节点温度不同
+#image("note_image/2-8-2.png", width: 50%)
+
+==== 温度电势
+- *接触电动势【90%】* 由于两种导体的自由电子密度不同，接触时结点处发生电子扩散，当触点处电子扩散达到动态平衡时，产生一个稳定的接触电势。 $ E_(A B)(T) = (k T ln(N_A"/"N_B))/(e) \ \ E_(A B)(T_0) = (k T_0 ln(N_A"/"N_B))/(e) \ \ E_C (T, T_0) = E_(A B)(T) - E_(A B)(T_0) = (k (T - T_0) ln(N_A"/"N_B))/(e) \ \  $
+- *温差电动势【10%】* 因同一导体两端温度不同而产生的电动势。其形成原因是导体高温端的自由电子具有较大动能，向低温端扩散。 $ E_A (T, T_0) = integral_(T_0)^(T) sigma_A "d"T \ \ E_B (T, T_0) = integral_(T_0)^(T) sigma_B "d"T \ \ E_(A B)(T, T_0) = E_A (T, T_0) - E_B (T, T_0) = integral_(T_0)^(T) (sigma_A - sigma_B) "d"T \  $
+- *回路电动势 or 热电动势* $ E_(A B)(T, T_0) = E_(C)(T, T_0) - E_(A B)(T, T_0) = (k (T - T_0) ln(N_A"/"N_B))/(e) $
+
+- *灵敏度 $6 ~ 80 mu"V/℃"$ * $ E_(A B)(T, T_0) = a(T - T_0) + b(T^2 - T_0^2) \ \ ("d"E_(A B)(T, T_0))/("d"T) = a + 2b T \ $
+
+==== 热电偶传感器的特性
+- 均值回路定律
+- 中间导体定律
+- 标准电极定律（向量） $ E_(A B)(T, T_0) = E_(A C)(T, T_0) - E_(B C)(T, T_0)\ \ $
+- *热电动势与热电偶的尺寸、形状和温度分布无关！！！* $ E_(A B)(T, T_0) = f(T) \ \ $
+- $T = T_0 => E_(A B)(T, T_0) = 0 $
+
+==== 热电偶传感器的测量电路
+- 热电偶与其连接导线（补偿导线）一一对应
+- 标准规定冷端温度为 0℃
+- 冷端电桥补偿电路
+    - $R_("Cu")$ 为补偿电阻
+    - $R_5$ 为限流电阻
+    - $U_(A B) = U_(a b) + E_x$
+    - 补偿电桥和电偶冷端处于相同的环境温度下
+#image("note_image/2-8-3.png", width: 50%)
+
+
+=== 集成温度传感器
+
+==== 二极管温度传感器
+
+==== 三极管温度传感器
+
+==== 集成温度传感器
+
+==== 辐射测温传感器
+
+
+=== 热电传感器的应用
 
 
 
